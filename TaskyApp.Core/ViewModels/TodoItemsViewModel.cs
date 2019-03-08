@@ -2,10 +2,8 @@
 namespace TaskyApp.ViewModels
 {
     // TODO first version without this pattern
-    public class ItemsViewModel
+    public class TodoItemsViewModel
     {
-        public ItemsViewModel()
-        {
-        }
+
     }
 }
