@@ -10,14 +10,12 @@ namespace TaskyApp.Droid
     [Activity(Label = "TaskyApp", MainLauncher = true, Icon = "@mipmap/icon")]
     public class MainActivity : Activity
     {
-        private const string TAG = "MainActivity";
-
         private Button addTaskButton;
         private ListView taskListView;
-        private TodoItemListAdapter taskList;
 
+        // Mantain logic on shared code
         private TodoItemsViewModel tasksViewModel;
-
+        TodoItemListAdapter listAdapter;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -31,7 +29,7 @@ namespace TaskyApp.Droid
             if(addTaskButton != null)
             {
                 addTaskButton.Click += delegate {
-                    Log.Debug(TAG, "addTaskButton pressed");
+                    Log.Debug(TaskyApp.TAG, "addTaskButton pressed");
                     StartActivity(typeof(TodoItemActivity));
                 };
             }
@@ -41,14 +39,14 @@ namespace TaskyApp.Droid
             {
                 taskListView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) => 
                 {
-                    Log.Debug(TAG, "click item {0}", e.Position);
+                    Log.Debug(TaskyApp.TAG, "click item {0} and ID {1}", e.Position, e.Id);
                     var taskDetails = new Intent(this, typeof(TodoItemActivity));
-                    //var  currentTask = tasksViewModel.GetTask((int) e.Id);
-                    //int id = currentTask.ID;
                     taskDetails.PutExtra("TaskID", (int) e.Id);
                     StartActivity(taskDetails);
                 };
             }
+
+            listAdapter = new TodoItemListAdapter(this, tasksViewModel.GetTasks());
         }
 
 
@@ -56,11 +54,7 @@ namespace TaskyApp.Droid
         {
             base.OnResume();
 
-            // create our adapter
-            taskList = new TodoItemListAdapter(this, tasksViewModel.GetTasks());
-
-            // hook up our adapter to our ListView
-            taskListView.Adapter = (IListAdapter) taskList;
+            taskListView.Adapter = new TodoItemListAdapter(this, tasksViewModel.GetTasks());
         }
 
     }

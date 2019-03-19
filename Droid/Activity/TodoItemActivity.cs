@@ -1,6 +1,7 @@
 ﻿using System;
 using Android.App;
 using Android.OS;
+using Android.Util;
 using Android.Widget;
 using TaskyApp.Models;
 using TaskyApp.ViewModels;
@@ -32,6 +33,7 @@ namespace TaskyApp.Droid
             if(taskID > 0)
             {
                 task = tasksViewModel.GetTask(taskID);
+                Log.Debug(TaskyApp.TAG, "selected task {0}", task.ToString());
             }
 
             SetContentView(Resource.Layout.TaskDetails);

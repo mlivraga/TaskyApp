@@ -11,6 +11,8 @@ namespace TaskyApp.Droid
     {
         public static TaskyApp Current { get; private set; }
 
+        public static string TAG;
+
         public TaskyApp(IntPtr handle, global::Android.Runtime.JniHandleOwnership transfer) : base(handle,transfer)
         {
             Current = this;
@@ -19,6 +21,8 @@ namespace TaskyApp.Droid
         public override void OnCreate()
         {
             base.OnCreate();
+
+            TAG = this.Resources.GetString(Resource.String.app_name);
         }
 
     }
