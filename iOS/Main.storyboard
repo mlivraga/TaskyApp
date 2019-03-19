@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TaskDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -76,12 +76,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="221.6" y="-61.61919"/>
+            <point key="canvasLocation" x="65.60001" y="-63.61919"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="jBE-Jb-29q">
             <objects>
-                <tableViewController id="LbJ-et-dim" sceneMemberID="viewController" customClass="TodoItemsViewController">
+                <tableViewController id="LbJ-et-dim" sceneMemberID="viewController" customClass="TasksViewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kjx-N0-Lna">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,7 +95,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="showDetail" id="502"/>
+                                    <segue id="1152" destination="BYZ-38-t0r" kind="showDetail" identifier="TaskSegue"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -1,25 +1,23 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
-using System.Collections;
-using System.Collections.Generic;
-using TaskyApp.Models;
 using Android.Util;
-using System;
 using Android.Content;
-using TaskyApp.Repository;
+using TaskyApp.ViewModels;
 
 namespace TaskyApp.Droid
 {
     [Activity(Label = "TaskyApp", MainLauncher = true, Icon = "@mipmap/icon")]
     public class MainActivity : Activity
     {
-
         private const string TAG = "MainActivity";
-        private TodoItemListAdapter taskList;
-        private IList<TodoItem> tasks;
+
         private Button addTaskButton;
         private ListView taskListView;
+        private TodoItemListAdapter taskList;
+
+        private TodoItemsViewModel tasksViewModel;
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,12 +25,14 @@ namespace TaskyApp.Droid
 
             SetContentView(Resource.Layout.Main);
 
+            tasksViewModel = new TodoItemsViewModel();
+
             addTaskButton = FindViewById<Button>(Resource.Id.btn_add);
             if(addTaskButton != null)
             {
                 addTaskButton.Click += delegate {
-                    Log.Debug(TAG, "Button pressed");
-                    StartActivity(typeof(TodoItemScreen));
+                    Log.Debug(TAG, "addTaskButton pressed");
+                    StartActivity(typeof(TodoItemActivity));
                 };
             }
 
@@ -41,8 +41,9 @@ namespace TaskyApp.Droid
             {
                 taskListView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) => 
                 {
-                    var taskDetails = new Intent(this, typeof(TodoItemScreen));
-                    taskDetails.PutExtra("TaskID", tasks[e.Position].ID);
+                    Log.Debug(TAG, "clicke item {0}", e.Position);
+                    var taskDetails = new Intent(this, typeof(TodoItemActivity));
+                    taskDetails.PutExtra("TaskID", tasksViewModel.GetTask(e.Position).ID);
                     StartActivity(taskDetails);
                 };
             }
@@ -53,11 +54,8 @@ namespace TaskyApp.Droid
         {
             base.OnResume();
 
-            // access to TaskyApp class
-            tasks = TaskyApp.Current.TodoManager.GetTasks();
-
             // create our adapter
-            taskList = new TodoItemListAdapter(this, tasks);
+            taskList = new TodoItemListAdapter(this, tasksViewModel.GetTasks());
 
             // hook up our adapter to our ListView
             taskListView.Adapter = (IListAdapter) taskList;

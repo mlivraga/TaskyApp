@@ -3,6 +3,7 @@ using Android.App;
 using Android.OS;
 using Android.Widget;
 using TaskyApp.Models;
+using TaskyApp.ViewModels;
 
 namespace TaskyApp.Droid
 {
@@ -10,7 +11,7 @@ namespace TaskyApp.Droid
     /// View/edit a Task
     /// </summary>
     [Activity(Label = "TaskDetailsScreen")]
-    public class TodoItemScreen : Activity
+    public class TodoItemActivity : Activity
     {
         TodoItem task = new TodoItem();
         Button cancelDeleteButton;
@@ -19,14 +20,19 @@ namespace TaskyApp.Droid
         Button saveButton;
         CheckBox doneCheckbox;
 
+        private TodoItemsViewModel tasksViewModel;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
+            tasksViewModel = new TodoItemsViewModel();
+
             int taskID = Intent.GetIntExtra("TaskID", 0);
             if(taskID > 0)
             {
-                task = TaskyApp.Current.TodoManager.GetTask(taskID);
+
+                task = tasksViewModel.GetTask(taskID);
             }
 
             SetContentView(Resource.Layout.TaskDetails);
@@ -55,7 +61,7 @@ namespace TaskyApp.Droid
             task.Notes = notesTextEdit.Text;
             task.Done = doneCheckbox.Checked;
 
-            int saved = TaskyApp.Current.TodoManager.SaveTask(task);
+            int saved = tasksViewModel.SaveTask(task);
             Console.WriteLine("SaveTesk value {0}", saved);
             Finish();
         }
@@ -64,7 +70,7 @@ namespace TaskyApp.Droid
         {
             if(task.ID != 0)
             {
-                TaskyApp.Current.TodoManager.DeleteTask(task.ID);
+                tasksViewModel.DeleteTask(task.ID);
             }
             Finish();
         }

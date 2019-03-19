@@ -61,12 +61,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TodoItemListAdapter.cs" />
-    <Compile Include="TodoItemScreen.cs" />
     <Compile Include="TaskyApp.cs" />
+    <Compile Include="Activity\MainActivity.cs" />
+    <Compile Include="Activity\TodoItemActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -89,6 +89,9 @@
       <Project>{61C9E380-EA12-4253-9BDF-66B1855FD99E}</Project>
       <Name>TaskyApp.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Activity\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

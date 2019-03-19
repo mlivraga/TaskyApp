@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="ViewControllers\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
@@ -116,14 +117,13 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
+    <Compile Include="ViewControllers\TaskDetailsViewController.cs" />
+    <Compile Include="ViewControllers\TaskDetailsViewController.designer.cs">
+      <DependentUpon>TaskDetailsViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="TodoItemDialog.cs" />
-    <Compile Include="TodoItemsViewController.cs" />
-    <Compile Include="TodoItemsViewController.designer.cs">
-      <DependentUpon>TodoItemsViewController.cs</DependentUpon>
+    <Compile Include="ViewControllers\TasksViewController.cs" />
+    <Compile Include="ViewControllers\TasksViewController.designer.cs">
+      <DependentUpon>TasksViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
