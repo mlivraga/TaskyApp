@@ -14,5 +14,8 @@ namespace TaskyApp.iOS
     [Register ("TasksViewController")]
     partial class TasksViewController
     {
+        void ReleaseDesignerOutlets ()
+        {
+        }
     }
 }

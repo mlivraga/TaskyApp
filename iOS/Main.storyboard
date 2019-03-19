@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Task Details View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TaskDetailsViewController" sceneMemberID="viewController">
@@ -22,80 +22,101 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Ciao" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aTW-ZB-JLQ">
-                                <rect key="frame" x="154" y="73" width="205" height="30"/>
+                                <rect key="frame" x="154" y="119" width="205" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Ciao" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YGY-el-AJq">
-                                <rect key="frame" x="154" y="124" width="205" height="30"/>
+                                <rect key="frame" x="154" y="170" width="205" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Name" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="g2u-3T-xrJ">
-                                <rect key="frame" x="25" y="72" width="93" height="31"/>
+                                <rect key="frame" x="25" y="118" width="93" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Notes" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RaX-O4-mV0">
-                                <rect key="frame" x="25" y="127" width="93" height="27"/>
+                                <rect key="frame" x="25" y="173" width="93" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Done" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZOC-cS-3DT">
-                                <rect key="frame" x="25" y="180" width="93" height="27"/>
+                                <rect key="frame" x="25" y="226" width="93" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o5e-1p-mUC">
-                                <rect key="frame" x="233" y="176" width="51" height="31"/>
+                                <rect key="frame" x="233" y="222" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdc-NH-Xi2">
-                                <rect key="frame" x="25" y="282" width="334" height="30"/>
+                                <rect key="frame" x="25" y="328" width="334" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="SaveButton_TouchUpInside:" destination="BYZ-38-t0r" id="2432" eventType="touchUpInside"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qm9-ym-1h6">
-                                <rect key="frame" x="25" y="354" width="334" height="30"/>
+                                <rect key="frame" x="25" y="400" width="334" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="DeleteButton_TouchUpInside:" destination="BYZ-38-t0r" id="2444" eventType="touchUpInside"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="DoneSwitch" destination="o5e-1p-mUC" id="name-outlet-o5e-1p-mUC"/>
+                        <outlet property="NotesText" destination="YGY-el-AJq" id="name-outlet-YGY-el-AJq"/>
+                        <outlet property="TitleText" destination="aTW-ZB-JLQ" id="name-outlet-aTW-ZB-JLQ"/>
+                        <outlet property="SaveButton" destination="fdc-NH-Xi2" id="name-outlet-fdc-NH-Xi2"/>
+                        <outlet property="DeleteButton" destination="qm9-ym-1h6" id="name-outlet-qm9-ym-1h6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65.60001" y="-63.61919"/>
+            <point key="canvasLocation" x="242" y="-60"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="jBE-Jb-29q">
             <objects>
-                <tableViewController id="LbJ-et-dim" sceneMemberID="viewController" customClass="TasksViewController">
+                <tableViewController id="LbJ-et-dim" customClass="TasksViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kjx-N0-Lna">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <button key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iE1-NA-CIM">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Add Task"/>
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="eCj-A5-3El"/>
+                            </connections>
+                        </button>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sOa-KX-cNv">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskcell" id="sOa-KX-cNv">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sOa-KX-cNv" id="dmp-AK-pFX">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue id="1152" destination="BYZ-38-t0r" kind="showDetail" identifier="TaskSegue"/>
+                                    <segue destination="BYZ-38-t0r" kind="showDetail" identifier="TaskSegue" id="1152"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -105,10 +126,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="pSd-gk-OHQ"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nS6-lN-D2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-542" y="-61"/>
+            <point key="canvasLocation" x="-532" y="-60"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e6T-HD-I0O">
@@ -127,4 +149,7 @@
             <point key="canvasLocation" x="-1282" y="-59"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="eCj-A5-3El"/>
+    </inferredMetricsTieBreakers>
 </document>

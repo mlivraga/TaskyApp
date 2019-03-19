@@ -22,7 +22,7 @@ namespace TaskyApp.Droid
         {
             base.OnCreate();
 
-            TAG = this.Resources.GetString(Resource.String.app_name);
+            TAG = Resources.GetString(Resource.String.app_name);
         }
 
     }

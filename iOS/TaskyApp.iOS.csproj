@@ -125,6 +125,7 @@
     <Compile Include="ViewControllers\TasksViewController.designer.cs">
       <DependentUpon>TasksViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="RootTableSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TaskyApp.Core\TaskyApp.Core.csproj">
