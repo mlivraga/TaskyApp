@@ -16,7 +16,6 @@ namespace TaskyApp.Droid
         Activity context = null;
         IList<TodoItem> tasks = new List<TodoItem>();
 
-        // :base() ??? What is for?
         public TodoItemListAdapter(Activity activity, IList<TodoItem> items) : base()
         {
             this.context = activity;
@@ -28,9 +27,10 @@ namespace TaskyApp.Droid
             get { return tasks[position]; }
         }
 
+        // Return the item id on the DB
         public override long GetItemId(int position)
         {
-            return position;
+            return tasks[position].ID;
         }
 
         public override int Count {

@@ -41,9 +41,11 @@ namespace TaskyApp.Droid
             {
                 taskListView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) => 
                 {
-                    Log.Debug(TAG, "clicke item {0}", e.Position);
+                    Log.Debug(TAG, "click item {0}", e.Position);
                     var taskDetails = new Intent(this, typeof(TodoItemActivity));
-                    taskDetails.PutExtra("TaskID", tasksViewModel.GetTask(e.Position).ID);
+                    //var  currentTask = tasksViewModel.GetTask((int) e.Id);
+                    //int id = currentTask.ID;
+                    taskDetails.PutExtra("TaskID", (int) e.Id);
                     StartActivity(taskDetails);
                 };
             }

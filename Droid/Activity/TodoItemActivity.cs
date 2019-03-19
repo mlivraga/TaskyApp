@@ -31,7 +31,6 @@ namespace TaskyApp.Droid
             int taskID = Intent.GetIntExtra("TaskID", 0);
             if(taskID > 0)
             {
-
                 task = tasksViewModel.GetTask(taskID);
             }
 

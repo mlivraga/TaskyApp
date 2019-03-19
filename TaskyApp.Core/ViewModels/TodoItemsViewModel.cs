@@ -9,15 +9,11 @@ namespace TaskyApp.ViewModels
 {
     public class TodoItemsViewModel
     {
-        private IList<TodoItem> tasks;
-
         public TodoItemManager TodoManager { get; set; }
         SQLiteConnection conn;
 
         public TodoItemsViewModel() {
             Inizializations();
-
-            tasks = TodoManager.GetTasks();
         }
 
         private void Inizializations()
@@ -32,12 +28,12 @@ namespace TaskyApp.ViewModels
 
         public IList<TodoItem> GetTasks()
         {
-            return tasks;
+            return TodoManager.GetTasks();
         }
 
-        public TodoItem GetTask(int position)
+        public TodoItem GetTask(int id)
         {
-            return tasks[position];
+            return TodoManager.GetTask(id);
         }
 
         public int SaveTask(TodoItem task)
