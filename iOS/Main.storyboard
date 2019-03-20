@@ -116,7 +116,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="showDetail" identifier="TaskSegue" id="1152"/>
+                                    <segue id="3999" destination="BYZ-38-t0r" kind="show" identifier="TaskSegue"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

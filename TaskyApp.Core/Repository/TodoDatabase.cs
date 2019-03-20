@@ -6,9 +6,9 @@ using TaskyApp.Models;
 
 namespace TaskyApp.Repository
 {
-    /*
-     * Class that manage the interaction with Database
-     */
+    /// <summary>
+    /// Class that manage the operations with the Database
+    /// </summary>
     public class TodoDatabase
     {
         static object locker = new object();
@@ -17,9 +17,7 @@ namespace TaskyApp.Repository
 
         public string path;
 
-        /*
-         * Initialize a new instance
-         */
+
         public TodoDatabase(SQLiteConnection conn)
         {
             database = conn;
@@ -27,9 +25,6 @@ namespace TaskyApp.Repository
             database.CreateTable<TodoItem>();
         }
 
-        /*
-         * Returns a list of items
-         */
         public IEnumerable<TodoItem> GetItems()
         {
             lock (locker)
@@ -39,9 +34,6 @@ namespace TaskyApp.Repository
 
         }
 
-        /*
-         * Return a single item with the specified identifier
-         */
         public TodoItem GetItem(int id)
         {
             lock (locker)
@@ -50,9 +42,6 @@ namespace TaskyApp.Repository
             }
         }
 
-        /*
-         * Save the item on the DB
-         */
         public int SaveItem(TodoItem item)
         {
             lock (locker)
@@ -69,9 +58,6 @@ namespace TaskyApp.Repository
             }
         }
 
-        /*
-         * Delete one item by id on the DB
-         */
         public int DeleteItem(int id)
         {
             lock (locker)
@@ -79,8 +65,6 @@ namespace TaskyApp.Repository
                 return database.Delete<TodoItem>(id);
             }
         }
-
-
 
     }
 }

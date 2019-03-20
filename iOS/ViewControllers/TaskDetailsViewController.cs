@@ -26,23 +26,20 @@ namespace TaskyApp.iOS
 
         partial void SaveButton_TouchUpInside(UIButton sender)
         {
-            if(currentTask != null)
-            {
-                tasksViewModel.SaveTask(currentTask);
-            }
+            TodoItem newItem = new TodoItem();
+
+            if (currentTask != null)
+                newItem.ID = currentTask.ID;
+
+            newItem.Name = TitleText.Text.Equals("") ? "np" : TitleText.Text;
+            newItem.Notes = NotesText.Text;
+
+            if (DoneSwitch.On)
+                newItem.Done = true;
             else
-            {
-                TodoItem currentItem = new TodoItem();
-                currentItem.Name = TitleText.Text;
-                currentItem.Notes = NotesText.Text;
+                newItem.Done = false;
 
-                if (DoneSwitch.On)
-                    currentItem.Done = true;
-                else
-                    currentItem.Done = false;
-
-                tasksViewModel.SaveTask(currentItem);
-            }
+            tasksViewModel.SaveTask(newItem);
 
         }
 
@@ -77,14 +74,14 @@ namespace TaskyApp.iOS
         public void SaveTask(TodoItem saveItem)
         {
             tasksViewModel.SaveTask(saveItem);
-            NavigationController.PopViewController(true);
+            this.NavigationController.PopViewController(true);
         }
 
 
         public void DeleteTask(int id)
         {
             tasksViewModel.DeleteTask(id);
-            NavigationController.PopViewController(true);
+           
         }
 
 

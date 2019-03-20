@@ -5,12 +5,10 @@ using TaskyApp.Models;
 
 namespace TaskyApp.Repository
 {
-    /*
-     * Manager classes are an abstraction on the data access layer, 
-     * it wraps the TodoItemRepository to provide the Get, Save and Delete methods
-     * Business rules and logic would be placed here if required.
-     * This class is a Facade.
-     */
+    /// <summary>
+    /// Manager classes are an abstraction on the data access layer, 
+    /// it wraps the TodoItemRepository, this class is a Facade.
+    /// </summary>
     public class TodoItemManager
     {
         TodoItemRepository repository;

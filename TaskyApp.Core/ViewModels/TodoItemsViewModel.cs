@@ -7,6 +7,9 @@ using TaskyApp.Repository;
 
 namespace TaskyApp.ViewModels
 {
+    /// <summary>
+    /// Menage the CRUD operations on the task items
+    /// </summary>
     public class TodoItemsViewModel
     {
         public TodoItemManager TodoManager { get; set; }

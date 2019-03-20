@@ -6,9 +6,9 @@ using TaskyApp.Models;
 
 namespace TaskyApp.Repository
 {
-    /*
-     * Singleton to access on DB, it's a wrapper for the TodoDatabase class
-     */
+    /// <summary>
+    /// Singleton to access on DB, it's a wrapper for the TodoDatabase class
+    /// </summary>
     public class TodoItemRepository
     {
         TodoDatabase db = null;
@@ -28,6 +28,7 @@ namespace TaskyApp.Repository
             return db.GetItems();
         }
 
+        // Save == Update if the ID is the same
         public int SaveTask(TodoItem item)
         {
             return db.SaveItem(item);
