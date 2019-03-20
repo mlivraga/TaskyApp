@@ -8,13 +8,21 @@ namespace TaskyApp.iOS
 {
     public partial class TaskDetailsViewController : UIViewController
     {
-
         TodoItem currentTask { get; set; }
         TodoItemsViewModel tasksViewModel;
 
+        // will be used to Save, Delete later
+        public TasksViewController Delegate { get; set; }
 
         public TaskDetailsViewController (IntPtr handle) : base (handle)
         {
+        }
+
+        // this will be called before the view is displayed
+        public void SetTask(TasksViewController d, TodoItem task)
+        {
+            Delegate = d;
+            currentTask = task;
         }
 
         public override void ViewDidLoad()
@@ -22,6 +30,19 @@ namespace TaskyApp.iOS
             base.ViewDidLoad();
 
             tasksViewModel = new TodoItemsViewModel();
+        }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+
+            if (currentTask != null)
+            {
+                TitleText.Text = currentTask.Name;
+                NotesText.Text = currentTask.Notes;
+                DoneSwitch.On = currentTask.Done;
+            }
+
         }
 
         partial void SaveButton_TouchUpInside(UIButton sender)
@@ -41,49 +62,18 @@ namespace TaskyApp.iOS
 
             tasksViewModel.SaveTask(newItem);
 
+            // Come back to the previous view
+            NavigationController.PopViewController(true);
         }
 
         partial void DeleteButton_TouchUpInside(UIButton sender)
         {
-            tasksViewModel.DeleteTask(currentTask.ID);
-        }
-
-        public TasksViewController Delegate { get; set; } // will be used to Save, Delete later
-
-
-        public override void ViewWillAppear(bool animated)
-        {
-            base.ViewWillAppear(animated);
-
             if(currentTask != null)
-            {
-                TitleText.Text = currentTask.Name;
-                NotesText.Text = currentTask.Notes;
-                DoneSwitch.On = currentTask.Done;
-            }
+                tasksViewModel.DeleteTask(currentTask.ID);
 
+            // Come back to the previous view
+            NavigationController.PopViewController(true);
         }
-
-        // this will be called before the view is displayed
-        public void SetTask(TasksViewController d, TodoItem task)
-        {
-            Delegate = d;
-            currentTask = task;
-        }
-
-        public void SaveTask(TodoItem saveItem)
-        {
-            tasksViewModel.SaveTask(saveItem);
-            this.NavigationController.PopViewController(true);
-        }
-
-
-        public void DeleteTask(int id)
-        {
-            tasksViewModel.DeleteTask(id);
-           
-        }
-
 
     }
 }
