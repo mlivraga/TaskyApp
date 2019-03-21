@@ -47,8 +47,8 @@ namespace TaskyApp.Droid
 			// aapt resource value: 0x7f050009
 			public const int CancelDeleteButton = 2131034121;
 			
-			// aapt resource value: 0x7f050003
-			public const int NameLabel = 2131034115;
+			// aapt resource value: 0x7f050002
+			public const int NameLabel = 2131034114;
 			
 			// aapt resource value: 0x7f050004
 			public const int NameText = 2131034116;
@@ -62,8 +62,8 @@ namespace TaskyApp.Droid
 			// aapt resource value: 0x7f050008
 			public const int SaveButton = 2131034120;
 			
-			// aapt resource value: 0x7f050002
-			public const int TaskDetailsHeader = 2131034114;
+			// aapt resource value: 0x7f050003
+			public const int TaskDetailsHeader = 2131034115;
 			
 			// aapt resource value: 0x7f050000
 			public const int btn_add = 2131034112;
@@ -107,7 +107,7 @@ namespace TaskyApp.Droid
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int ic_launcher = 2130837504;
 			
 			static Mipmap()
 			{

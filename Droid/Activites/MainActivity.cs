@@ -7,7 +7,7 @@ using TaskyApp.ViewModels;
 
 namespace TaskyApp.Droid
 {
-    [Activity(Label = "TaskyApp", MainLauncher = true, Icon = "@mipmap/icon")]
+    [Activity(Label = "Tasky", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
     public class MainActivity : Activity
     {
         private Button addTaskButton;

@@ -11,7 +11,7 @@ namespace TaskyApp.Droid
     /// <summary>
     /// View/edit a Task
     /// </summary>
-    [Activity(Label = "TaskDetailsScreen")]
+    [Activity(Label = "Tasky Details")]
     public class TodoItemActivity : Activity
     {
         TodoItem task = new TodoItem();
